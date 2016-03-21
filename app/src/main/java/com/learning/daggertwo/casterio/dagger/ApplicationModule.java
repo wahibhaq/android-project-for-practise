@@ -5,6 +5,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.learning.daggertwo.casterio.network.RestCountryApiEndpointInterface;
+import com.learning.daggertwo.casterio.network.RestCountryService;
+import com.learning.daggertwo.casterio.network.RestCountryServiceImpl;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -32,5 +36,11 @@ public class ApplicationModule {
     @Singleton
     public SharedPreferences provideSharedPreferences(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context);
+    }
+
+    @Provides
+    @Singleton
+    public RestCountryService provideRestCountryService(RestCountryApiEndpointInterface apiService) {
+        return new RestCountryServiceImpl(apiService);
     }
 }

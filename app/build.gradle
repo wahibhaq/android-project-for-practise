@@ -35,13 +35,13 @@ def DaggerVersion = '2.0.2'
 def GlassFishVersion = '10.0-b28'
 def RetrofitVersion = '2.0.0-beta4'
 def OkHttpVersion = '3.1.2'
-
+def RxVersion = '1.1.0'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.0'
 
+    //Dependency Injection
     compile "com.google.dagger:dagger:$DaggerVersion"
     apt "com.google.dagger:dagger-compiler:$DaggerVersion"
     provided "com.google.dagger:dagger-compiler:$DaggerVersion"
@@ -49,11 +49,24 @@ dependencies {
     androidTestCompile "com.google.dagger:dagger:$DaggerVersion"
     androidTestProvided "org.glassfish:javax.annotation:$GlassFishVersion"
 
+    //Networking
     compile "com.squareup.retrofit2:retrofit:$RetrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$RetrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$RetrofitVersion"
-
-    compile 'com.android.support:design:23.1.0'
-    compile 'com.google.code.gson:gson:2.5'
     compile "com.squareup.okhttp3:okhttp:$OkHttpVersion"
+
+    //Rx
+    compile "com.squareup.retrofit2:adapter-rxjava:$RetrofitVersion"
+    compile "io.reactivex:rxjava:$RxVersion"
+    compile "io.reactivex:rxandroid:$RxVersion"
+
+
+
+
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.3.0'
+    compile 'com.artemzin.rxjava:proguard-rules:1.1.0.0'
+    compile 'com.android.support:design:23.2.0'
+    compile 'com.android.support:support-v4:23.2.0'
 }
