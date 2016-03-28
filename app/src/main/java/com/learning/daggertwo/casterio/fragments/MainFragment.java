@@ -12,12 +12,14 @@ import android.widget.TextView;
 
 import com.learning.daggertwo.casterio.R;
 import com.learning.daggertwo.casterio.TaskoApplication;
+import com.learning.daggertwo.casterio.models.Country;
 import com.learning.daggertwo.casterio.network.PopulationCountListener;
 import com.learning.daggertwo.casterio.network.RestCountryService;
 
 import javax.inject.Inject;
 
 import eu.restcountries.models.CountryInfo;
+import io.realm.Realm;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +43,8 @@ public class MainFragment extends BaseFragment {
     RestCountryService restCountryService;
 
     private TextView mTxtTitle;
+
+    private Realm realm;
 
     public MainFragment() {
         // Required empty public constructor
@@ -89,6 +93,7 @@ public class MainFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         mTxtTitle = (TextView) view.findViewById(R.id.txt_title);
+        realm = Realm.getDefaultInstance();
 
         performFetchingData();
     }
@@ -103,6 +108,14 @@ public class MainFragment extends BaseFragment {
                     int populationCount = countryInfo.getPopulation();
                     mTxtTitle.setText("Population of " + countryName + " is : " + populationCount);
 //                    Log.d(TAG, "Country Population : " + populationCount);
+
+                    //Adding data but not retrieving for now.
+                    realm.beginTransaction();
+                    Country country = realm.createObject(Country.class);
+                    country.setName(countryName);
+                    country.setPopulationCount(populationCount);
+                    realm.commitTransaction();
+
                 }
             }
 
@@ -135,6 +148,7 @@ public class MainFragment extends BaseFragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        realm.close();
     }
 
     /**

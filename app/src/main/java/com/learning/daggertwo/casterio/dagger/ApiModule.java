@@ -1,7 +1,6 @@
 package com.learning.daggertwo.casterio.dagger;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.learning.daggertwo.casterio.R;
 import com.learning.daggertwo.casterio.network.Constants;

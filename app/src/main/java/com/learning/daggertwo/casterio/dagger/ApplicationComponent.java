@@ -23,6 +23,4 @@ public interface ApplicationComponent {
     void inject(PopulationCountService target);
 
     void inject(MainFragment target);
-//    void inject(RestCountryServiceImpl target);
-
 }

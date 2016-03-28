@@ -19,7 +19,7 @@ public class RestCountryServiceImpl implements RestCountryService {
 
     private RestCountryApiEndpointInterface apiService;
     private static final String CLASS_NAME = RestCountryServiceImpl.class.getSimpleName();
-    private Subscription mPopCountSubscription;
+    private Subscription mPopCountSubscription; //maybe used later to unsubscribe
 
     public RestCountryServiceImpl(RestCountryApiEndpointInterface service) {
         this.apiService = service;
