@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LearningDaggerCasterio.iml" filepath="$PROJECT_DIR$/LearningDaggerCasterio.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learning-dagger2-casterio.iml" filepath="$PROJECT_DIR$/learning-dagger2-casterio.iml" />
     </modules>
   </component>
 </project>
