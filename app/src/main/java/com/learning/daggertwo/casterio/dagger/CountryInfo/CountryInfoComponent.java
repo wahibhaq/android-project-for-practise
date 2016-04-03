@@ -1,7 +1,6 @@
 package com.learning.daggertwo.casterio.dagger.CountryInfo;
 
 import com.learning.daggertwo.casterio.fragments.CountryInfoFragment;
-import com.learning.daggertwo.casterio.services.PopulationCountService;
 
 import dagger.Subcomponent;
 
@@ -13,6 +12,6 @@ import dagger.Subcomponent;
 @CountryInfoScope
 public interface CountryInfoComponent {
 
-//    void inject(PopulationCountService target);
     void inject(CountryInfoFragment target);
+
 }
