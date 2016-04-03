@@ -1,8 +1,7 @@
-package com.learning.daggertwo.casterio.dagger;
+package com.learning.daggertwo.casterio.dagger.Settings;
 
 import com.learning.daggertwo.casterio.fragments.SettingsFragment;
 
-import dagger.Component;
 import dagger.Subcomponent;
 
 /**

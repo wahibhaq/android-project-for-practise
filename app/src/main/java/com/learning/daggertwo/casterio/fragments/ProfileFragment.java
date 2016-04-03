@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import com.learning.daggertwo.casterio.R;
 import com.learning.daggertwo.casterio.TaskoApplication;
-import com.learning.daggertwo.casterio.demo.DemoApplication;
 import com.learning.daggertwo.casterio.models.SomeTestObject;
 
 import javax.inject.Inject;
@@ -18,7 +17,9 @@ import javax.inject.Inject;
  */
 public class ProfileFragment extends BaseFragment {
 
-    @Inject protected Resources resources;
+    @Inject
+    protected Resources resources; //coming from the parent component
+
     @Inject
     protected SomeTestObject someTestObject;
 
@@ -34,7 +35,7 @@ public class ProfileFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((TaskoApplication) getActivity().getApplication()).createProfileComponent().inject(this);
+        TaskoApplication.get(getActivity()).createProfileComponent().inject(this);
     }
 
     @Override
@@ -48,6 +49,6 @@ public class ProfileFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ((TaskoApplication) getActivity().getApplication()).releaseProfileComponent();
+        TaskoApplication.get(getActivity()).releaseProfileComponent();
     }
 }

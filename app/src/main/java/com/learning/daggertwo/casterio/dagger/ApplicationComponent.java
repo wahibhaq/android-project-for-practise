@@ -2,9 +2,13 @@ package com.learning.daggertwo.casterio.dagger;
 
 import com.learning.daggertwo.casterio.TaskoApplication;
 import com.learning.daggertwo.casterio.activities.MainActivity;
-import com.learning.daggertwo.casterio.fragments.MainFragment;
-import com.learning.daggertwo.casterio.network.RestCountryServiceImpl;
-import com.learning.daggertwo.casterio.services.PopulationCountService;
+import com.learning.daggertwo.casterio.dagger.CountryInfo.ApiModule;
+import com.learning.daggertwo.casterio.dagger.CountryInfo.CountryInfoComponent;
+import com.learning.daggertwo.casterio.dagger.CountryInfo.CountryInfoModule;
+import com.learning.daggertwo.casterio.dagger.Profile.ProfileComponent;
+import com.learning.daggertwo.casterio.dagger.Profile.ProfileModule;
+import com.learning.daggertwo.casterio.dagger.Settings.SettingsComponent;
+import com.learning.daggertwo.casterio.dagger.Settings.SettingsModule;
 
 import javax.inject.Singleton;
 
@@ -20,9 +24,8 @@ public interface ApplicationComponent {
 
     void inject(TaskoApplication target);
     void inject(MainActivity target);
-    void inject(PopulationCountService target);
-    void inject(MainFragment target);
 
+    CountryInfoComponent plus(CountryInfoModule countryInfoModule);
     SettingsComponent plus(SettingsModule settingsModule);
     ProfileComponent plus(ProfileModule ProfileModule);
 

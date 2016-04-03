@@ -25,27 +25,25 @@ public class PopulationCountService extends Service {
     public void onCreate() {
         super.onCreate();
 //        android.os.Debug.waitForDebugger();
-        TaskoApplication.get(this).getApplicationComponent().inject(this);
+//        TaskoApplication.get(this).createCountryInfoComponent().inject(this);
+
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG, "Attempting to get current conditions.");
+        Log.d(TAG, "Attempting to get .");
 
-        // Forecast service is an ASYNC call.
-        // hard coded to NYC. In prod: Use a location listener to get the GPS coords of the user.
         restCountryService.getPopulatationCountFor("Pakistan", new PopulationCountListener() {
             @Override
             public void onPopulationCountLoaded(CountryInfo countryInfo) {
 
                 if (countryInfo != null) {
-                    Log.d(TAG, "Country info loaded.");
+                    Log.e(TAG, "Country info loaded.");
                 }
 
                 if (countryInfo != null && countryInfo.getPopulation() != null) {
                     int populationCount = countryInfo.getPopulation();
-                    Log.d(TAG, "Country Population : " + populationCount);
-
+//                    Log.d(TAG, "Country Population : " + populationCount);
                 }
 
                 stopSelf();
@@ -66,5 +64,11 @@ public class PopulationCountService extends Service {
     @Nullable
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+//        TaskoApplication.get(this).releaseCountryInfoComponent();
     }
 }

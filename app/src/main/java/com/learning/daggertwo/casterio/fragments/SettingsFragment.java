@@ -18,8 +18,11 @@ import javax.inject.Inject;
  */
 public class SettingsFragment extends BaseFragment {
 
-    @Inject protected Resources resources;
-    @Inject protected SettingsService settingsService;
+    @Inject
+    protected Resources resources; //coming from the parent component
+
+    @Inject
+    protected SettingsService settingsService;
 
     public SettingsFragment() {
     }
@@ -31,8 +34,7 @@ public class SettingsFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((TaskoApplication) getActivity().getApplication()).createSettingsComponent().inject(this);
-
+        TaskoApplication.get(getActivity()).createSettingsComponent().inject(this);
     }
 
     @Nullable
@@ -46,6 +48,6 @@ public class SettingsFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ((TaskoApplication) getActivity().getApplication()).releaseSettingsComponent();
+        TaskoApplication.get(getActivity()).releaseSettingsComponent();
     }
 }

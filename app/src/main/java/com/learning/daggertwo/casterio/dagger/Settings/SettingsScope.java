@@ -1,4 +1,4 @@
-package com.learning.daggertwo.casterio.dagger;
+package com.learning.daggertwo.casterio.dagger.Settings;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,5 +11,5 @@ import javax.inject.Scope;
 
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ProfileScope {
+public @interface SettingsScope {
 }

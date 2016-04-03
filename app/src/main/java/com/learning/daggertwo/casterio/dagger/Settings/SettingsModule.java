@@ -1,4 +1,4 @@
-package com.learning.daggertwo.casterio.dagger;
+package com.learning.daggertwo.casterio.dagger.Settings;
 
 import com.learning.daggertwo.casterio.services.SettingServiceImpl;
 import com.learning.daggertwo.casterio.services.SettingsService;

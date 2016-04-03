@@ -3,7 +3,7 @@
     <string name="mashape_api_key">5YR3E5aBdPmshmzLaAsUw0X9OtFUp1CpqeJjsnBKGuCdczadYD</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello Main fragment</string>
+    <string name="hello_blank_fragment">Hello Country Info fragment</string>
     <string name="title_activity_demo">DemoActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

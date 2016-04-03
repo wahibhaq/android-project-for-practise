@@ -3,7 +3,6 @@ package com.learning.daggertwo.casterio.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,15 +20,7 @@ import javax.inject.Inject;
 import eu.restcountries.models.CountryInfo;
 import io.realm.Realm;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link MainFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MainFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MainFragment extends BaseFragment {
+public class CountryInfoFragment extends BaseFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +28,7 @@ public class MainFragment extends BaseFragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private static final String TAG = MainFragment.class.getSimpleName();
+    private static final String TAG = CountryInfoFragment.class.getSimpleName();
 
     @Inject
     RestCountryService restCountryService;
@@ -46,7 +37,7 @@ public class MainFragment extends BaseFragment {
 
     private Realm realm;
 
-    public MainFragment() {
+    public CountryInfoFragment() {
         // Required empty public constructor
     }
 
@@ -56,11 +47,11 @@ public class MainFragment extends BaseFragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MainFragment.
+     * @return A new instance of fragment CountryInfoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainFragment newInstance(String param1, String param2) {
-        MainFragment fragment = new MainFragment();
+    public static CountryInfoFragment newInstance(String param1, String param2) {
+        CountryInfoFragment fragment = new CountryInfoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,16 +59,15 @@ public class MainFragment extends BaseFragment {
         return fragment;
     }
 
-    public static MainFragment newInstance() {
-        MainFragment fragment = new MainFragment();
+    public static CountryInfoFragment newInstance() {
+        CountryInfoFragment fragment = new CountryInfoFragment();
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        TaskoApplication.get(getActivity()).getApplicationComponent().inject(this);
+        TaskoApplication.get(getActivity()).createCountryInfoComponent().inject(this);
     }
 
     @Override
@@ -85,7 +75,7 @@ public class MainFragment extends BaseFragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(R.layout.fragment_countryinfo, container, false);
     }
 
     @Override
@@ -149,6 +139,12 @@ public class MainFragment extends BaseFragment {
         super.onDetach();
         mListener = null;
         realm.close();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        TaskoApplication.get(getActivity()).releaseCountryInfoComponent();
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.learning.daggertwo.casterio.dagger;
+package com.learning.daggertwo.casterio.dagger.CountryInfo;
 
 import android.content.Context;
 

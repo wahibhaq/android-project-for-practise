@@ -6,10 +6,6 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
-import com.learning.daggertwo.casterio.network.RestCountryApiEndpointInterface;
-import com.learning.daggertwo.casterio.network.RestCountryService;
-import com.learning.daggertwo.casterio.network.RestCountryServiceImpl;
-
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -21,6 +17,7 @@ import dagger.Provides;
 
 @Module
 public class ApplicationModule {
+
     private Application application;
 
     public ApplicationModule(Application application) {
@@ -42,11 +39,5 @@ public class ApplicationModule {
     @Provides
     public Resources providesResources(Context context) {
         return context.getResources();
-    }
-
-    @Provides
-    @Singleton
-    public RestCountryService provideRestCountryService(RestCountryApiEndpointInterface apiService) {
-        return new RestCountryServiceImpl(apiService);
     }
 }

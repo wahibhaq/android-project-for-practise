@@ -1,6 +1,6 @@
 package com.learning.daggertwo.casterio.demo;
 
-import com.learning.daggertwo.casterio.dagger.ApiModule;
+import com.learning.daggertwo.casterio.dagger.CountryInfo.ApiModule;
 
 import javax.inject.Singleton;
 

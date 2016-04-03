@@ -14,14 +14,14 @@ import android.view.MenuItem;
 
 import com.learning.daggertwo.casterio.R;
 import com.learning.daggertwo.casterio.TaskoApplication;
-import com.learning.daggertwo.casterio.fragments.MainFragment;
+import com.learning.daggertwo.casterio.fragments.CountryInfoFragment;
 import com.learning.daggertwo.casterio.fragments.ProfileFragment;
 import com.learning.daggertwo.casterio.fragments.SettingsFragment;
 
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements
-        MainFragment.OnFragmentInteractionListener,
+        CountryInfoFragment.OnFragmentInteractionListener,
         NavigationView.OnNavigationItemSelectedListener {
 
     @Inject
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements
             Log.d("Dagger2", "Prefs is not null");
         }
 
-//        navigateToMainFragment();
+//        navigateToCountryInfoFragment();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity implements
         navigationView.getMenu().getItem(0).setChecked(true);
     }
 
-    private void navigateToMainFragment() {
+    private void navigateToCountryInfoFragment() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content_main, MainFragment.newInstance(), MainFragment.class.getSimpleName())
+                .replace(R.id.content_main, CountryInfoFragment.newInstance(), CountryInfoFragment.class.getSimpleName())
                 .commit();
     }
 
@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements
             navigateToProfileFragment();
         } else if (id == R.id.nav_settings) {
             navigateToSettingsFragment();
-        } else if (id == R.id.nav_main) {
-            navigateToMainFragment();
+        } else if (id == R.id.nav_countryinfo) {
+            navigateToCountryInfoFragment();
         }
 
 
