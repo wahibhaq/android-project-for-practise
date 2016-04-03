@@ -15,7 +15,6 @@ import com.learning.daggertwo.casterio.R;
  */
 public abstract class BaseFragment extends Fragment {
 
-
     public BaseFragment() {
         // Required empty public constructor
     }

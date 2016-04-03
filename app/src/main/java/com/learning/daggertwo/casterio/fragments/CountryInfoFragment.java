@@ -21,10 +21,6 @@ import eu.restcountries.models.CountryInfo;
 import io.realm.Realm;
 
 public class CountryInfoFragment extends BaseFragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     private OnFragmentInteractionListener mListener;
 
@@ -39,24 +35,6 @@ public class CountryInfoFragment extends BaseFragment {
 
     public CountryInfoFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CountryInfoFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CountryInfoFragment newInstance(String param1, String param2) {
-        CountryInfoFragment fragment = new CountryInfoFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     public static CountryInfoFragment newInstance() {
@@ -106,7 +84,6 @@ public class CountryInfoFragment extends BaseFragment {
                     country.setName(countryName);
                     country.setPopulationCount(populationCount);
                     realm.commitTransaction();
-
                 }
             }
 
@@ -139,12 +116,6 @@ public class CountryInfoFragment extends BaseFragment {
         return fraction;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -162,11 +133,6 @@ public class CountryInfoFragment extends BaseFragment {
         super.onDetach();
         mListener = null;
         realm.close();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
         TaskoApplication.get(getActivity()).releaseCountryInfoComponent();
     }
 
