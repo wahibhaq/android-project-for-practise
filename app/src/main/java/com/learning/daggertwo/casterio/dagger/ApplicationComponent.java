@@ -21,6 +21,9 @@ public interface ApplicationComponent {
     void inject(TaskoApplication target);
     void inject(MainActivity target);
     void inject(PopulationCountService target);
-
     void inject(MainFragment target);
+
+    SettingsComponent plus(SettingsModule settingsModule);
+    ProfileComponent plus(ProfileModule ProfileModule);
+
 }

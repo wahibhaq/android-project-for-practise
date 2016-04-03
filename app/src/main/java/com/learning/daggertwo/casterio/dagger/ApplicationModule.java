@@ -3,6 +3,7 @@ package com.learning.daggertwo.casterio.dagger;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
 import com.learning.daggertwo.casterio.network.RestCountryApiEndpointInterface;
@@ -36,6 +37,11 @@ public class ApplicationModule {
     @Singleton
     public SharedPreferences provideSharedPreferences(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context);
+    }
+
+    @Provides
+    public Resources providesResources(Context context) {
+        return context.getResources();
     }
 
     @Provides

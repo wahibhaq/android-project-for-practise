@@ -25,7 +25,7 @@ public class PopulationCountService extends Service {
     public void onCreate() {
         super.onCreate();
 //        android.os.Debug.waitForDebugger();
-        TaskoApplication.get(this).getComponent().inject(this);
+        TaskoApplication.get(this).getApplicationComponent().inject(this);
     }
 
     @Override

@@ -77,7 +77,7 @@ public class MainFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TaskoApplication.get(getActivity()).getComponent().inject(this);
+        TaskoApplication.get(getActivity()).getApplicationComponent().inject(this);
     }
 
     @Override
