@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.learning.daggertwo.casterio.R;
 import com.learning.daggertwo.casterio.TaskoApplication;
-import com.learning.daggertwo.casterio.services.SettingsService;
+import com.learning.daggertwo.casterio.dagger.Settings.SettingsService;
 
 import javax.inject.Inject;
 

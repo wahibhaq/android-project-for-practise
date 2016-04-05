@@ -1,4 +1,4 @@
-package com.learning.daggertwo.casterio.services;
+package com.learning.daggertwo.casterio.dagger.Settings;
 
 /**
  * Created by wahibulhaq on 03/04/16.

@@ -1,8 +1,5 @@
 package com.learning.daggertwo.casterio.dagger.Settings;
 
-import com.learning.daggertwo.casterio.services.SettingServiceImpl;
-import com.learning.daggertwo.casterio.services.SettingsService;
-
 import dagger.Module;
 import dagger.Provides;
 
